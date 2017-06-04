@@ -1,0 +1,42 @@
+﻿@model  AngularTreeView.Entityes.Car
+@{
+    ViewBag.Title = "Index";
+}
+<link href="~/Content/angular.treeview.css" rel="stylesheet" />
+<link href="~/Content/MyStyle.css" rel="stylesheet" />
+@section Scripts{
+<script src="~/Scripts/ajax-AngularJS v1.0.6-treeview.js"></script>
+    <script src="~/Scripts/angular.treeview.js"></script>
+    <script src="~/Scripts/myApp.js"></script>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jQueryUI-v1.8.24-me.js"></script>
+<script src="~/Scripts/populate-dropdown-from-dropdown.js"></script>
+<script src="~/Scripts/MyJSFunctionValidate.js"></script>
+}
+<h2>Registration cars for sale</h2>
+<div ng-app="myApp" ng-controller="myController">
+    <span>Selected Node :{{mytree.currentNode.Company}}</span>
+    <div data-angular-treeview="true"
+         data-tree-id="mytree"
+         data-tree-model="List"
+         data-node-id="ID"
+         data-node-label="Company"
+         data-node-children="Childrens">
+
+    </div>
+</div>
+
+
+
+@using (Html.BeginForm())
+{
+    @*@Html.TextBox("ID", null, new { placeholder = "ID", required = string.Empty });<br /><br />*@
+    @Html.TextBox("Company", null, new { placeholder = "Car Tag", required = string.Empty });<br /><br />
+    @Html.DropDownListFor(m => m.ID, new SelectList(Model.Childrens, "ID", "Company"), "---Select Car---", new { @id = "parnetDropDown", @style = "width:200px;", @onchange = "javascript:GetParent(this.value);" })
+    <br />
+    <br />
+    <select id="childDropDown" name="childDropDown" style="width: 200px"></select>
+    <br />
+    <br />
+    <input type="submit" value="Sign In" onclick="return JSFunctionValidate()">
+}

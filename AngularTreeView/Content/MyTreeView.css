@@ -1,0 +1,24 @@
+﻿.AspNet-TreeView {
+    width: 200px;
+    border-top: solid 1px #DDD;
+}
+
+.AspNet-TreeView ul {
+    list-style: none;
+}
+
+.AspNet-TreeView-Leaf {
+    border-bottom: solid 1px #DDD;
+    background: url(../../images/structure/node-dot.gif) 8px 9px no-repeat;
+}
+
+.AspNet-TreeView-Root {
+    border-bottom: solid 1px #DDD;
+}
+
+.AspNet-TreeView-Root a {
+    display: block;
+    width: 170px;
+    margin-left: 20px;
+    padding: 5px 5px 5px 5px;
+}
